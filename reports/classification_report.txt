@@ -1,0 +1,10 @@
+               precision    recall  f1-score   support
+
+      Compost       0.74      0.92      0.82       285
+General_Waste       0.65      0.35      0.45       278
+    Hazardous       0.74      0.82      0.78       284
+      Recycle       0.58      0.64      0.61       281
+
+     accuracy                           0.69      1128
+    macro avg       0.68      0.68      0.67      1128
+ weighted avg       0.68      0.69      0.67      1128
