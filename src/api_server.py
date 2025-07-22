@@ -8,10 +8,11 @@ import io
 app = Flask(__name__)
 
 # --- Configuration ---
-# Update this path if your model file is in a different location
 MODEL_PATH = 'waste_classifier_final.keras'
-IMAGE_SIZE = (224, 224) # Must be the same size the model was trained on
+IMAGE_SIZE = (224, 224)
 CLASS_NAMES = ['Compost', 'General_Waste', 'Hazardoos', 'Recycle']
+# ADDED: Set a confidence threshold of 85%
+CONFIDENCE_THRESHOLD = 85.0 
 
 # --- Load the trained model ---
 print(f"Loading model from: {MODEL_PATH}")
@@ -53,8 +54,16 @@ def predict():
         predicted_class = CLASS_NAMES[predicted_index]
         confidence = float(np.max(predictions[0]) * 100)
 
+        # --- ADDED: Confidence Threshold Logic ---
+        # If confidence is below the threshold, classify as Unknown.
+        if confidence < CONFIDENCE_THRESHOLD:
+            final_prediction = "Unknown / Still learning"
+        else:
+            final_prediction = predicted_class
+        # -----------------------------------------
+
         return jsonify({
-            'prediction': predicted_class,
+            'prediction': final_prediction,
             'confidence': f"{confidence:.2f}%"
         })
     except Exception as e:
@@ -63,5 +72,4 @@ def predict():
 
 # --- Run the Flask App ---
 if __name__ == '__main__':
-    # Use 0.0.0.0 to make it accessible on your local network
     app.run(host='0.0.0.0', port=5000)
