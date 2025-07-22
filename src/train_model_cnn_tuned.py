@@ -2,8 +2,6 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 from tensorflow.keras.optimizers import Adam # Import Adam to customize it
 
-# --- This part is the same as your original code ---
-
 # Paths
 train_dir = 'dataset_split/train'
 val_dir = 'dataset_split/val'
@@ -52,7 +50,6 @@ test_generator = test_val_datagen.flow_from_directory(
     shuffle=False
 )
 
-# --- This is the new, deeper and more complex CNN model ---
 
 model = models.Sequential([
     # Block 1

@@ -81,7 +81,7 @@ model_checkpoint = ModelCheckpoint(
 )
 
 # --- Train the Model ---
-print("🚀 Starting training with Transfer Learning...")
+print(" Starting training with Transfer Learning...")
 history = model.fit(
     train_generator,
     epochs=20, # Set a higher max epoch; EarlyStopping will stop it sooner
