@@ -1,0 +1,13 @@
+--- Classification Report ---
+This report shows the main classification metrics for each class.
+
+               precision    recall  f1-score   support
+
+      Compost       1.00      0.99      0.99       285
+General_Waste       0.95      0.94      0.94       278
+    Hazardous       0.97      1.00      0.99       284
+      Recycle       0.94      0.93      0.94       281
+
+     accuracy                           0.96      1128
+    macro avg       0.96      0.96      0.96      1128
+ weighted avg       0.96      0.96      0.96      1128
