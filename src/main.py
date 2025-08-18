@@ -8,9 +8,9 @@ import io
 app = Flask(__name__)
 
 # --- Configuration ---
-MODEL_PATH = 'waste_classifier_final.keras'
+MODEL_PATH = '../models/sortify_waste_classifier_model_V_1.2.keras'
 IMAGE_SIZE = (224, 224)
-CLASS_NAMES = ['Compost', 'General_Waste', 'Hazardoos', 'Recycle']
+CLASS_NAMES = ['Compost', 'General_Waste', 'Hazardous', 'Recycle']
 # ADDED: Set a confidence threshold of 85%
 CONFIDENCE_THRESHOLD = 85.0 
 
